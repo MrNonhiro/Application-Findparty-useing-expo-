@@ -23,6 +23,12 @@ import deliveryWaiting from './components/loggedin/statusPage/deliveryWaiting';
 import delivery from './components/loggedin/statusPage/delivery';
 import received from './components/loggedin/statusPage/received';
 
+{
+  // store user page
+}
+import homepage from './components/loggedin/storeUser/homepage';
+
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -55,6 +61,11 @@ const App = () => {
         <Stack.Screen name="deliveryWaiting" component={deliveryWaiting} options={{ headerShown: false }} />
         <Stack.Screen name="delivery" component={delivery} options={{ headerShown: false }} />
         <Stack.Screen name="received" component={received} options={{ headerShown: false }} />
+
+        {
+          // store user page
+        }
+        <Stack.Screen name="homepage" component={homepage} options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>

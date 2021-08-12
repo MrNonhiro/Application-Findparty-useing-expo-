@@ -18,7 +18,10 @@ const nologinpage = ({ navigation }) => {
                     title="e.g. user's detail page"
                     onPress={() => navigation.navigate('userpage')}>
                 </Button>
-
+                <Button color="red" style={{ fontSize: 20, borderRadius: 10 }}
+                    title="store user page"
+                    onPress={() => navigation.navigate('homepage')}>
+                </Button>
             </View>
         </View>
     )

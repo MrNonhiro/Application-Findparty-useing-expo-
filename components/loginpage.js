@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
-export default function loginpage(props) {
-  const [user_email, setEmail] = useState("");
-  const [user_password, setPassword] = useState("");
+export default function loginpage({ navigation }) {
+  const [email, setuser_Email] = useState("");
+  const [password, setuser_Password] = useState("");
   const [googleSubmitting, setGoogleSubmitting] = useState("");
-
 
   let [isSubmit, setIsSubmit] = useState(false);
 
@@ -14,15 +13,15 @@ export default function loginpage(props) {
     const authenticate = async () => {
       axios
         .post(
-          "http://http://34.87.35.160//login.php",
+          "http://34.87.120.146/login.php",
           JSON.stringify({
-            user_email: user_email,
-            user_password: user_password,
+            user_email: email,
+            user_password: password,
           })
         )
         .then((response) => {
-          if (response.data == 'true') {
-            props.navigation.navigate("userpage");
+          if (response.data == "true") {
+            navigation.navigate("userpage");
             setIsSubmit(false)
           } else {
             alert(JSON.stringify(response.data));
@@ -39,7 +38,7 @@ export default function loginpage(props) {
   }, [isSubmit]);
 
   const usernameHandler = (text) => {
-    setEmail(text);
+    setuser_Email(text);
 
   };
 
@@ -58,7 +57,7 @@ export default function loginpage(props) {
           </View>
           <View style={styles.searchbar}>
             <Image source={require('../images/password.png')} style={styles.userimage} />
-            <TextInput style={styles.placeholder} placeholder="Password" onChangeText={(text) => setPassword(text)} />
+            <TextInput style={styles.placeholder} placeholder="Password" onChangeText={(text) => setuser_Password(text)} />
           </View>
           <View style={styles.buttombox}>
             <Text style={{ alignSelf: 'center', alignSelf: 'flex-end', marginRight: '10%', marginTop: '2%' }}> ลืมรหัสผ่าน? </Text>
@@ -69,7 +68,7 @@ export default function loginpage(props) {
             <Image source={require('../images/google.png')} style={styles.loginimage2} />
           </View>
           <View style={styles.submit}>
-            <Text style={styles.submittext} onPress={() => setIsSubmit(true)}> เข้าสู่ระบบ </Text>
+            <TouchableOpacity onPress={() => setIsSubmit(true)} style={styles.submittext}><Text> เข้าสู่ระบบ </Text></TouchableOpacity>
           </View>
           <View style={styles.submit2}>
             <Text style={styles.submittext2} onPress={() => navigation.goBack()}> ยกเลิก </Text>
@@ -174,4 +173,4 @@ const styles = StyleSheet.create({
     width: '19%'
   }
 })
-;
+  ;

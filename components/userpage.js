@@ -10,7 +10,7 @@ const Userpage = () => {
       <Header />
       <Text style={styles.text}> โปรโมชัน </Text>
       <Promotion />
-      <Text style={styles.text}> ควยแม่มึง </Text>
+      <Text style={styles.text}>  </Text>
       <Goods />
     </View>
   )

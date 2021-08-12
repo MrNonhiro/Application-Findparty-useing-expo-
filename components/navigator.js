@@ -22,7 +22,7 @@ const Navigator = () => {
         }}
     >
     <Tab.Screen 
-        name="Home" 
+        name="หน้าหลัก" 
         component={homenavigator} 
         options={{
             tabBarIcon: ({focused}) => (
@@ -41,7 +41,7 @@ const Navigator = () => {
         }}
     />
     <Tab.Screen 
-        name="Party" 
+        name="ปาร์ตี้" 
         component={Nonuserparty}
         options={{
             tabBarIcon:({focused}) => (
@@ -58,7 +58,7 @@ const Navigator = () => {
         }}
     />
     <Tab.Screen 
-        name="User" 
+        name="ผู้ใช้งาน" 
         component={nologinpage} 
         options={{
             tabBarIcon: ({focused}) => (
